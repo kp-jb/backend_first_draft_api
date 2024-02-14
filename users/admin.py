@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser
 
 
-class UserAdmin(UserAdmin):
+class CustomUserAdmin(UserAdmin):
     model = CustomUser
     list_display = [
         "email",
@@ -13,4 +13,4 @@ class UserAdmin(UserAdmin):
     ]
 
 
-admin.site.register(CustomUser, UserAdmin)
+admin.site.register(CustomUser, CustomUserAdmin)
