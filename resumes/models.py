@@ -7,6 +7,7 @@ class Resume(models.Model):
         get_user_model(), on_delete=models.CASCADE, null=True, blank=True
     )
     name = models.CharField(max_length=50)
+
     content = models.TextField(blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
@@ -16,3 +17,4 @@ class Resume(models.Model):
 
     def get_absolute_url(self):
         return reverse('resume_detail', args=[str(self.id)])
+

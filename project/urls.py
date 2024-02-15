@@ -29,4 +29,5 @@ urlpatterns = [
 
     path("api/v1/resumes/", include("resumes.urls")),
     # path("api/v1/coverletters/", include("coverletters.urls")),
+
 ]
