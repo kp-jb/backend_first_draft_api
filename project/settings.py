@@ -68,6 +68,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     # cors
     "corsheaders.middleware.CorsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware", # new
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -107,6 +108,7 @@ DATABASES = {
     }
 }
 
+# elephant sql
 # DATABASES = {
 #     "default": {
 #         "ENGINE": env.str("DATABASE_ENGINE"),
@@ -181,6 +183,6 @@ SIMPLE_JWT = {
 }
 
 # django-cors-headers
-CORS_ALLOWED_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")
+CORS_ALLOW_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")
 # CORS_ALLOWED_ORIGINS = tuple(env.list("ALLOWED_ORIGINS", default=[]))
 CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]

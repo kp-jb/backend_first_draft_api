@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.urls import reverse
 
 
 class Resume(models.Model):
@@ -8,7 +9,7 @@ class Resume(models.Model):
     )
     name = models.CharField(max_length=50)
 
-    content = models.TextField(blank=True)
+    content = models.TextField(blank=True, max_length=1000)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
