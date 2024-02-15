@@ -10,11 +10,9 @@ class CreateCustomUserView(APIView):
     permission_classes = ()
 
     def post(self, request):
-        # use a serializer
         serializer = CustomUserSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
-            # if this works, `user` will be truthy
             if user:
                 json = serializer.data
                 return Response(json, status=status.HTTP_201_CREATED)
