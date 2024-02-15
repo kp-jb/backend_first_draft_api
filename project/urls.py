@@ -28,6 +28,6 @@ urlpatterns = [
     path("api/token/refresh/", jwt_views.TokenRefreshView.as_view(), name="token_refresh"),
 
     path("api/v1/resumes/", include("resumes.urls")),
-    # path("api/v1/coverletters/", include("coverletters.urls")),
+    path("api/v1/cover_letters/", include("cover_letters.urls")),
 
 ]

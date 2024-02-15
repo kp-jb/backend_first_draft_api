@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     # custom
     "users.apps.UsersConfig",
     "resumes.apps.ResumesConfig",
+    "cover_letters",
 ]
 
 MIDDLEWARE = [
