@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Resume(models.Model):
-    user_id = models.ForeignKey(
+    owner = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE, null=True, blank=True
     )
     name = models.CharField(max_length=50)
