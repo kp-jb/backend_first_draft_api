@@ -61,7 +61,7 @@ INSTALLED_APPS = [
 
     # custom
     "users.apps.UsersConfig",
-    "resumes.apps.ResumesConfig",
+    "records.apps.RecordsConfig",
 ]
 
 MIDDLEWARE = [
