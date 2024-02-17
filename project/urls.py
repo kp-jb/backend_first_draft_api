@@ -29,4 +29,6 @@ urlpatterns = [
 
     path("api/v1/records/", include("records.urls")),
 
+    path("api/v1/openai/", include("chatgpt.urls")),
+
 ]
