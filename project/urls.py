@@ -27,7 +27,8 @@ urlpatterns = [
     path("api/token/", CustomTokenObtainPairView.as_view(), name="token_pair"),
     path("api/token/refresh/", jwt_views.TokenRefreshView.as_view(), name="token_refresh"),
 
-    path("api/v1/resumes/", include("resumes.urls")),
-    # path("api/v1/coverletters/", include("coverletters.urls")),
+    path("api/v1/records/", include("records.urls")),
+
+    path("api/v1/openai/", include("chatgpt.urls")),
 
 ]
