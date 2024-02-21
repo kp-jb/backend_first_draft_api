@@ -1,13 +1,17 @@
 from openai import OpenAI
 
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 import json
 
 client = OpenAI(api_key=settings.OPENAI_API_KEY)
 
-@csrf_exempt
+@api_view(['POST'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
 def openai_request_view(request):
     if request.method == 'POST':
         try:
