@@ -88,23 +88,25 @@ WSGI_APPLICATION = "project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if 'test' in sys.argv:
+# if True:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": env.str("DATABASE_ENGINE"),
-#         "NAME": env.str("DATABASE_NAME"),
-#         "USER": env.str("DATABASE_USER"),
-#         "PASSWORD": env.str("DATABASE_PASSWORD"),
-#         "HOST": env.str("DATABASE_HOST"),
-#         "PORT": env.int("DATABASE_PORT"),
-#   }
-# }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": env.str("DATABASE_ENGINE"),
+            "NAME": env.str("DATABASE_NAME"),
+            "USER": env.str("DATABASE_USER"),
+            "PASSWORD": env.str("DATABASE_PASSWORD"),
+            "HOST": env.str("DATABASE_HOST"),
+            "PORT": env.int("DATABASE_PORT"),
+        }
+    }
 
 
 # Password validation
@@ -170,5 +172,5 @@ SIMPLE_JWT = {
 
 # django-cors-headers
 CORS_ALLOWED_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")
-# CORS_ALLOWED_ORIGINS = tuple(env.list("ALLOWED_ORIGINS", default=[]))
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOWED_ORIGINS = tuple(env.list("ALLOWED_ORIGINS", default=[]))
+# CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
