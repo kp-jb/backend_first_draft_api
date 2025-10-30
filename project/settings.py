@@ -105,6 +105,7 @@ else:
             "PASSWORD": env.str("DATABASE_PASSWORD"),
             "HOST": env.str("DATABASE_HOST"),
             "PORT": env.int("DATABASE_PORT"),
+            "OPTIONS": {"sslmode": "require"},
         }
     }
 
